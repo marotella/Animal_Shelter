@@ -64,7 +64,11 @@ class AnimalShelter {
         const animalIndex = this.animals.indexOf(animal);
         this.animals.splice(animalIndex, 1);
     }
-}
+    getAnimalsBySpecies(animalSpecies){
+        return this.animals.filter(animals => animals.species === animalSpecies);
+        }
+    }
+
 
 const shelter = new AnimalShelter()
 
@@ -73,9 +77,23 @@ for (animal of animalData){
     if(animal.hunger){
         hunger = animal.hunger;
     }
-    const newAnimal = new Animal(animal.name, animal.species, animal.color, hunger);
+    let newAnimal;
+    if(animal.species === "dog"){
+        newAnimal = new Dog(animal.name, animal.color, hunger)
+    } else if (animal.species === "cat"){
+        newAnimal = new Cat(animal.name, animal.color, hunger)
+    } else{
+        newAnimal = new Animal(animal.name, animal.species, animal.color, hunger);
+    }
     console.log(newAnimal);
     shelter.addAnimal(newAnimal);
 }
 
-console.log(shelter)
+// console.log(shelter)
+
+for (const animal of shelter.animals){
+    animal.greet();
+    animal.feed();
+}
+
+console.log(shelter.getAnimalsBySpecies("dog"))
