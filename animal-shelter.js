@@ -21,3 +21,19 @@ console.log(lou)
 lou.greet()
 lou.feed()
 console.log(lou)
+
+//Creating a summary or super class for Animals
+
+class AnimalShelter {
+    consructor(){
+        this.animals = [];
+    }
+    addAnimal(animal){
+        this.animals.push(animal);
+    }
+    adopt(animal){
+        const animalIndex = this.animals.indexOf(animal);
+        this.animals.splice(animalIndex, 1);
+    }
+
+}
