@@ -16,13 +16,42 @@ class Animal {
     }
 }
 
-const lou = new Animal ("Lou", "cat", "tuxedo", "1000");
-console.log(lou)
-lou.greet()
-lou.feed()
-console.log(lou)
+class Cat extends Animal{
+    constructor(name, color, hunger){
+        super(name, "cat", color, hunger);
+        this.food = "fish";
+    }
+    greet(){
+        console.log(`Meow! I'm ${this.name} the ${this.species}!`);
+    }
+    food(){
+        console.log(`Yum, I love ${this.food}!`);
+    }
+}
 
-//Creating a summary or super class for Animals
+
+class Dog extends Animal{
+    constructor(name, color, hunger){
+        super(name, "dog", color, hunger);
+        this.food = "kibble";
+    }
+    greet(){
+        console.log(`Woof! I'm ${this.name} the ${this.species}!`);
+    }
+    food(){
+        console.log(`Yum, I love ${this.food}!`);
+    }
+}
+
+const oreo = new Dog ("Oreo", "Black and White", 2000);
+console.log(oreo)
+const lou = new Cat ("Lou", "cat", "tuxedo", 1000);
+console.log(lou);
+lou.greet();
+lou.feed();
+console.log(lou);
+
+//Creating a summary class for Animals
 
 class AnimalShelter {
     constructor(){
