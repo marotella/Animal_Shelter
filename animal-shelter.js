@@ -25,7 +25,7 @@ console.log(lou)
 //Creating a summary or super class for Animals
 
 class AnimalShelter {
-    consructor(){
+    constructor(){
         this.animals = [];
     }
     addAnimal(animal){
@@ -35,5 +35,18 @@ class AnimalShelter {
         const animalIndex = this.animals.indexOf(animal);
         this.animals.splice(animalIndex, 1);
     }
-
 }
+
+const shelter = new AnimalShelter()
+
+for (animal of animalData){
+    let hunger = 50;
+    if(animal.hunger){
+        hunger = animal.hunger;
+    }
+    const newAnimal = new Animal(animal.name, animal.species, animal.color, hunger);
+    console.log(newAnimal);
+    shelter.addAnimal(newAnimal);
+}
+
+console.log(shelter)
